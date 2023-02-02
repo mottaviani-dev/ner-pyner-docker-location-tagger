@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  ner_server:
+    build:
+      context: ../
+      dockerfile: deploy/java/Dockerfile
+    volumes:
+      - ../:/var/www/app
+    ports:
+      - 8888:8888
+    networks:
+      - datanet
+  python:
+    build:
+      context: ../
+      dockerfile: deploy/app/Dockerfile
+    image: local/python
+    container_name: python
+    depends_on:
+      - ner_server
+    volumes:
+      - ../:/var/www/app
+    networks:
+      - datanet
+
+networks:
+  datanet:
+    driver: bridge

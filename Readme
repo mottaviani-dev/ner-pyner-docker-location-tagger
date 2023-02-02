@@ -1,0 +1,20 @@
+#Readme
+Following the article here : https://ricedh.github.io/03-ner.html
+
+Stanford NER is a named entity recognition tool that uses a combination of Conditional Random Fields (CRF) and artificial neural networks to identify and categorize named entities in unstructured text into predefined categories like person names, organizations, locations, and more. https://nlp.stanford.edu/software/CRF-NER.shtml
+
+This code performs location tagging of text files in a given directory using a NER.
+
+It identifies location entities in the text files and stores the results in a JSON file.
+
+#Usage
+The main function uses the locations_tag function to find the location terms in text files in the locations directory. The resulting dictionary of locations is then written to a JSON file named locations.json.
+
+#Dependencies
+This code depends on the following packages:
+
+`csv`
+`os`
+`ner`
+`sys`
+`json`
